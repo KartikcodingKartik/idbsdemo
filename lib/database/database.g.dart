@@ -126,7 +126,7 @@ class _$TransactionDao extends TransactionDao {
 
   @override
   Future<List<Transaction>> retrieveTransaction() async {
-    return _queryAdapter.queryList('SELECT * FROM User',
+    return _queryAdapter.queryList('SELECT * FROM Transaction',
         mapper: (Map<String, Object?> row) => Transaction(
             row['id'] as int,
             row['date'] as String,
@@ -137,7 +137,7 @@ class _$TransactionDao extends TransactionDao {
 
   @override
   Future<Transaction?> deleteTransaction(int id) async {
-    return _queryAdapter.query('DELETE FROM User WHERE id = ?1',
+    return _queryAdapter.query('DELETE FROM Transaction WHERE id = ?1',
         mapper: (Map<String, Object?> row) => Transaction(
             row['id'] as int,
             row['date'] as String,

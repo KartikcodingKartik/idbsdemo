@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 const String _iconsRoot = 'assets/icons/';
 
 class AppIcons{
@@ -38,5 +37,7 @@ class AppIcons{
   static const String transactionHistory = '${_iconsRoot}transaction_history.png';
   static const String showScanQr = '${_iconsRoot}show_scanqr.png';
   static const String approveToPay = '${_iconsRoot}approve_to_pay.png';
-
+  static const String homeWhite = '${_iconsRoot}Group 46.png';
+  static const String eyeOpen = '${_iconsRoot}Group 57.png';
+  static const String eyeClosed = '${_iconsRoot}eye.png';
 }

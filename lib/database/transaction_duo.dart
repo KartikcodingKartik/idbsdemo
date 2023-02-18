@@ -8,10 +8,10 @@ abstract class TransactionDao {
 /*  @insert
   Future<List<int>> insertTransaction(List<Transaction> user);*/
 
-  @Query('SELECT * FROM User')
+  @Query('SELECT * FROM Transaction')
   Future<List<Transaction>> retrieveTransaction();
 
-  @Query('DELETE FROM User WHERE id = :id')
-  Future<Transaction?> deleteTransaction(int id);
+  @Query('DELETE FROM Transaction WHERE id = :id')
+  Future<Transaction?> deleteTransaction(int id );
 
 }

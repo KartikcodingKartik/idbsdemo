@@ -3,6 +3,9 @@ import 'package:idbs/screens/recent_transactions/recent_transaction_screen.dart'
 import 'package:idbs/util/app_colors.dart';
 import 'package:idbs/util/app_icons.dart';
 import 'package:idbs/util/text_widget.dart';
+import 'package:provider/provider.dart';
+
+import '../provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = "/HomeScreen";
@@ -14,8 +17,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  TransactionsViewProvider? transactionsViewProvider;
   @override
   Widget build(BuildContext context) {
+    transactionsViewProvider =
+        Provider.of<TransactionsViewProvider>(context, listen: true);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -123,6 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Container(
                           margin: EdgeInsets.symmetric(horizontal: 22),
+                          padding: EdgeInsets.symmetric(horizontal: 34,vertical: 25),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: Colors.white,
@@ -136,6 +143,32 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           height: 150,
                           width: double.infinity,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                TextWidget(text: '₹ 91.20', textStyle: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 20
+                                )),
+                                Spacer(),
+
+                                GestureDetector(
+                                    onTap: (){
+                                      transactionsViewProvider!.setIsAmountVisible = !transactionsViewProvider!.isAmountVisible ;
+                                    },
+                                    child: Image.asset( transactionsViewProvider!.isAmountVisible?AppIcons.eyeOpen:AppIcons.eyeClosed,width: 40,height: 27,)),
+
+                              ],
+                            ),
+                            TextWidget(text: 'Savings - XXXXXX0163', textStyle: TextStyle(
+                                fontSize: 16
+                            )),
+                          ],
+                        ),
+
                         ),
                       ],
                     ),
