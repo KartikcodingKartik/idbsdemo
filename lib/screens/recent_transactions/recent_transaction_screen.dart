@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:idbs/provider/provider.dart';
+import 'package:idbs/screens/passbook/passbook.dart';
 import 'package:idbs/util/text_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -112,6 +113,34 @@ class _RecentTransactionState extends State<RecentTransaction> {
               );
 
             }),
+          ),
+          GestureDetector(
+            onTap: (){
+              Navigator.pushNamed(context, PassbookScreen.id);
+            },
+            child: Container(
+              margin: const EdgeInsets.symmetric(
+                horizontal: 52,
+                vertical: 15,
+              ),
+              padding: const EdgeInsets.symmetric(vertical: 14),
+              decoration:  BoxDecoration(
+              color: Color(0xffB02925),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(AppIcons.pay,width: 22,height: 24,color: Colors.white),
+                  SizedBox(width: 6,),
+                  const TextWidget(text: 'Passbook', textStyle: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18,
+                  ))
+                ],
+              ),
+            ),
           )
 
         ],

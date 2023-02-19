@@ -166,7 +166,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             TextWidget(text: 'Savings - XXXXXX0163', textStyle: TextStyle(
                                 fontSize: 16
                             )),
-                          ],
+                            Spacer(),
+                            GestureDetector(
+                              onTap: (){
+                                Navigator.pushNamed(context, RecentTransaction.id);
+                              },
+                              child: TextWidget(text: 'Mini Statement', textStyle: TextStyle(fontSize: 16,color: Colors.redAccent)
+                              ),
+                            )],
                         ),
 
                         ),
@@ -210,7 +217,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                             children: [
-                              homeIcons(AppIcons.showScanQr, 'Transaction History'),
+                              homeIcons(AppIcons.showScanQr, 'Show My Qr'),
 
                               homeIcons(AppIcons.approveToPay, 'All Accounts'),
                               homeIcons(AppIcons.more, 'More'),
